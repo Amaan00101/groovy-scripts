@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from GitHub repository
-                git 'https://github.com/Amaan00101/groovy-scripts.git'  // Replace with your GitHub repository URL
+                git url: 'https://github.com/Amaan00101/groovy-scripts.git', branch: 'main'  // Replace with your GitHub repository URL
             }
         }
 
