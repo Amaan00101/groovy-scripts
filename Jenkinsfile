@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        groovy 'groovy'  
+    }
+
     environment {
         // If you are using SonarQube
         SONAR_HOST_URL = 'http://localhost:9000'  // Adjust with your SonarQube URL
