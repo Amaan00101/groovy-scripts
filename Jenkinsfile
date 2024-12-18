@@ -23,10 +23,12 @@ pipeline {
         stage('Run Groovy Script') {
             steps {
                 script {
-                    // Run the Groovy script using the 'groovy' command
-                    sh '''
-                        groovy car.groovy
-                    '''
+                    // Ensure that Groovy is in the PATH
+                    def groovyHome = tool name: 'groovy', type: 'GroovyInstallation'
+                    env.PATH = "${groovyHome}/bin:${env.PATH}"
+
+                    // Run the Groovy script
+                    sh 'groovy car.groovy'
                 }
             }
         }
