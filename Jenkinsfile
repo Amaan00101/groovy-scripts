@@ -23,20 +23,12 @@ pipeline {
         stage('Run Groovy Script') {
             steps {
                 script {
-                    // Ensure that Groovy is in the PATH
-                    // def groovyHome = tool name: 'groovy', type: 'GroovyInstallation'
-                    // env.PATH = "${groovyHome}/bin:${env.PATH}"
-
-                    // Run the Groovy script
                     sh 'groovy car.groovy'
                 }
             }
         }
 
         stage('SonarQube Analysis') {
-            when {
-                branch 'main'  // Optionally restrict to a specific branch
-            }
             steps {
                 script {
                     withSonarQubeEnv('sonarqube') {  // Use 'sonarqube' if it's configured in Jenkins
