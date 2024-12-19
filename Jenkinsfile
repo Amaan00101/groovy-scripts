@@ -59,7 +59,7 @@ pipeline {
                                 -Dsonar.projectKey=DevOps1 \
                                 -Dsonar.sources=. \
                                 -Dsonar.host.url=http://localhost:9000 \
-                                -Dsonar.login=squ_4fdfcc08f20a6643e4b768071a0161c18a405f8c
+                                -Dsonar.login=${SONAR_TOKEN}
                             // sonar-scanner \
                             //     -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
                             //     -Dsonar.sources=. \
