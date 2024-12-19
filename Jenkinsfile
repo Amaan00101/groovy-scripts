@@ -33,8 +33,9 @@ pipeline {
                 script {
                     withSonarQubeEnv('sonarqube') {  // Use 'sonarqube' if it's configured in Jenkins
                         sh '''
-                            mvn clean verify sonar:sonar \
+                            sonar-scanner \
                                 -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                                -Dsonar.sources=. \
                                 -Dsonar.host.url=${SONAR_HOST_URL} \
                                 -Dsonar.login=${SONAR_TOKEN}
                         '''
