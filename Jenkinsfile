@@ -34,10 +34,15 @@ pipeline {
                     withSonarQubeEnv('sonarqube') {  // Use 'sonarqube' if it's configured in Jenkins
                         sh '''
                             sonar-scanner \
-                                -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                                -Dsonar.projectKey=DevOps1 \
                                 -Dsonar.sources=. \
-                                -Dsonar.host.url=${SONAR_HOST_URL} \
-                                -Dsonar.login=${SONAR_TOKEN}
+                                -Dsonar.host.url=http://localhost:9000 \
+                                -Dsonar.login=squ_4fdfcc08f20a6643e4b768071a0161c18a405f8c
+                            // sonar-scanner \
+                            //     -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                            //     -Dsonar.sources=. \
+                            //     -Dsonar.host.url=${SONAR_HOST_URL} \
+                            //     -Dsonar.login=${SONAR_TOKEN}
                         '''
                     }
                 }
